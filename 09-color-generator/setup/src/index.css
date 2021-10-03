@@ -182,6 +182,9 @@ input {
 input.error {
   border: 2px solid var(--clr-red-dark);
 }
+input.correct {
+  border: 2px solid green;
+}
 .colors {
   min-height: calc(100vh - 100px);
   display: grid;
