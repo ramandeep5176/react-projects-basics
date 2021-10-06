@@ -1,8 +1,17 @@
-import React, { useContext } from 'react'
-import { FaBars } from 'react-icons/fa'
+import React, { useContext } from "react";
+import { FaBars } from "react-icons/fa";
 
 const Home = () => {
-  return <h2></h2>
-}
+  return <main>
+<button className="sidebar-toggle">
+  <FaBars/>
+</button>
+<button className="btn">
+  show moadal
+</button>
 
-export default Home
+
+  </main>;
+};
+
+export default Home;
