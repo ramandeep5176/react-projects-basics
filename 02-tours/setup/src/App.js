@@ -29,9 +29,9 @@ function App() {
 
   if (loading) {
     return (
-      <h3>
+      <main>
         <Loading />
-      </h3>
+      </main>
     );
   }
 
