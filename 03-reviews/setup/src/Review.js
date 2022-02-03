@@ -5,60 +5,47 @@ import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
 const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
+  console.log(people[index]);
 
-  const checkNumber = (number) => {
+  const no = (number) => {
     if (number > people.length - 1) {
       return 0;
     }
     if (number < 0) {
       return people.length - 1;
     }
+
     return number;
   };
-  const nextPerson = () => {
+
+  // onclick
+  function clickNext(index) {
     setIndex((index) => {
       let newIndex = index + 1;
-      return checkNumber(newIndex);
+      return no(newIndex);
     });
-  };
-  const prevPerson = () => {
+  }
+  function clickPrev() {
     setIndex((index) => {
       let newIndex = index - 1;
-      return checkNumber(newIndex);
+      return no(newIndex);
     });
-  };
-
-  const randomPerson = () => {
-    let randomNumber = Math.floor(Math.random() * people.length);
-    if (randomNumber === index) {
-      randomNumber = index + 1;
-    }
-    setIndex(checkNumber(randomNumber))
-  };
+  }
 
   return (
-    <article className="review">
-      <div className="img-container">
-        <img className="person-img" src={image} alt={name} />
-        <span className="quote-icon">
-          <FaQuoteRight />
-        </span>
+    <>
+      <div className="container">
+        <h2>{name}</h2>
+        <h3>{job}</h3>
+
+        <img className="imgg" src={image} alt="" />
+        <p>{text}</p>
       </div>
-      <h4 className="author">{name}</h4>
-      <p className="job">{job}</p>
-      <p className="info">{text}</p>
-      <div className="button-container">
-        <button className="prev-btn" onClick={prevPerson}>
-          <FaChevronLeft />
-        </button>
-        <button className="next-btn" onClick={nextPerson}>
-          <FaChevronRight />
-        </button>
-      </div>
-      <button className="random-btn" onClick={randomPerson}>
-        random review
-      </button>
-    </article>
+      <FaChevronRight onClick={clickNext} /> <br />
+      <br />
+      <FaChevronLeft onClick={clickPrev} />
+      <FaQuoteRight />
+    </>
   );
 };
 
